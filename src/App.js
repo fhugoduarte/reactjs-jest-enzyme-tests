@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div>
         <div className={`clicks-${count}`}>
-          {count} click
+          {count} clicks
         </div>
         <button id="increment" onClick={() => { this.setState({ count: count + 1 }); }}>
           Increment

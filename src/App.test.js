@@ -16,6 +16,15 @@ it('update state value', () => {
   expect(component.state('count')).toEqual(10);
 });
 
+it('verify change text', () => {
+  const component = mount(<App />);
+  expect(component.text()).toContain('0 clicks');
+  component.find('button#increment').simulate('click');
+  expect(component.text()).toContain('1 clicks');
+  component.find('button#decrement').simulate('click');
+  expect(component.text()).toContain('0 clicks');
+});
+
 it('click to increment button', () => {
   const component = mount(<App />);
   expect(component.find('.clicks-0').length).toEqual(1);
