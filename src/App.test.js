@@ -9,10 +9,11 @@ it('renders without props', () => {
   expect(component).toMatchSnapshot();
 });
 
-it('render Code Tag', () => {
+it('update state value', () => {
   const component = mount(<App />);
-  const code = <code>src/App.js</code>;
-  expect(component.contains(code)).toEqual(false);
+  expect(component.state('count')).toEqual(0);
+  component.setState({ count: 10 });
+  expect(component.state('count')).toEqual(10);
 });
 
 it('click to increment button', () => {
