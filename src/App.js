@@ -14,8 +14,11 @@ class App extends Component {
         <div className={`clicks-${count}`}>
           {count} click
         </div>
-        <button onClick={() => { this.setState({ count: count + 1 }); }}>
+        <button id="increment" onClick={() => { this.setState({ count: count + 1 }); }}>
           Increment
+        </button>
+        <button id="decrement" onClick={() => { this.setState({ count: count - 1 }); }}>
+          Decrement
         </button>
       </div>
     );
