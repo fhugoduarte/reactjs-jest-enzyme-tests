@@ -25,6 +25,19 @@ it('verify change text', () => {
   expect(component.text()).toContain('0 clicks');
 });
 
+it('verify state like a text count', () => {
+  const component = mount(<App/>);
+  let state = component.state('count');
+  expect(component.text()).toContain(state);
+  component.find('button#increment').simulate('click');
+  state = component.state('count');
+  expect(component.text()).toContain(state);
+  component.find('button#decrement').simulate('click');
+  component.find('button#decrement').simulate('click');
+  component.find('button#decrement').simulate('click');
+  expect(component.text()).toContain(state - 3);
+})
+
 it('click to increment button', () => {
   const component = mount(<App />);
   expect(component.find('.clicks-0').length).toEqual(1);
